@@ -9,7 +9,7 @@ console.log(this === window); // true
 var myFunction = function () {
   console.log(this);
 };
-myFunction(); // undefined
+myFunction(); // window
 
 // ------------
 
@@ -17,7 +17,7 @@ function f1() {
   "use strict";
   return this;
 }
-console.log(f1() === window); // false( undefined)
+console.log(f1() === window); // false
 
 // ------------
 
@@ -26,7 +26,7 @@ function foo() {
   console.log(this === window);
 }
 
-foo(); // Simple function call / true
+foo(); // true
 
 // ------------
 
@@ -34,7 +34,7 @@ foo(); // Simple function call / true
 (function () {
   console.log("Anonymous function invocation");
   console.log(this === window);
-})(); //Output
+})(); // true
 
 // ------------
 
@@ -42,7 +42,7 @@ var myObject = {};
 myObject.someMethod = function () {
   console.log(this);
 };
-myObject.someMethod(); // undefined
+myObject.someMethod(); // myObject
 
 // ------------
 
@@ -65,7 +65,7 @@ person2.displayName(); // Paul Adams
 function foo() {
   "use strict";
   console.log("Simple function call");
-  console.log(this === window);
+  console.log(this === window); // false
 }
 
 let user = {
@@ -76,7 +76,7 @@ let user = {
   },
 };
 
-user.foo(); // Simple function call
+user.foo(); // false
 let fun1 = user.foo1;
 fun1(); // true
 user.foo1(); // false
@@ -138,16 +138,16 @@ obj.getThis(); // window
 obj.getThis.call(a); //window
 
 // Output
-obj.getThis2();
+obj.getThis2(); // obj
 
 // Output
-obj.getThis2.call(a);
+obj.getThis2.call(a); // a
 
 // Output
-obj.getThis3();
+obj.getThis3();// window
 
 // Output
-obj.getThis4();
+obj.getThis4();// obj
 
 // -------------
 
@@ -185,7 +185,7 @@ let name1 = person.print;
 let name2 = person.details;
 
 console.log(name1()); // output?
-console.log(name2.print()); // Jay Details
+console.log(name2.print()); // error
 
 // --------
 
@@ -221,7 +221,7 @@ let object = {
     console.log("this inside of outerFn double()");
     console.log(this);
     return this.data.map(function (item) {
-      console.log(this); // Output ???
+      console.log(this); // obj
       return item * 2;
     });
   },
@@ -229,7 +229,7 @@ let object = {
     console.log("this inside of outerFn doubleArrow()");
     console.log(this);
     return this.dataDouble.map((item) => {
-      console.log(this); // Output ???
+      console.log(this); // window
       return item * 2;
     });
   },
@@ -249,7 +249,7 @@ function print() {
 }
 
 let printNameBob = print.bind(bobObj);
-console.log(printNameBob()); // output??
+console.log(printNameBob()); // ""
 
 // -------------------
 
@@ -279,7 +279,7 @@ const call = {
   },
 };
 
-call.says(); // output ???
+call.says(); // Hey mom just called
 
 // -----------------
 
@@ -292,7 +292,7 @@ const call = {
 
 let newCall = call.says;
 
-newCall(); // output ???
+newCall(); // hey undefined just called
 
 //  -----------------
 
@@ -310,4 +310,4 @@ const call = {
 
 let newCall = call.anotherCaller;
 
-newCall(); // output ??
+newCall(); // hey undefined jist called
