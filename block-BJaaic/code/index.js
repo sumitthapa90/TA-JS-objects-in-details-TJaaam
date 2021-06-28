@@ -1,23 +1,24 @@
 // Animal
 
-let animalMethod = {
+let animalMethods = {
   eat() {
-    console.log(`I live in ${location} and I can eat`);
+    console.log(`I live in ${this.location} and I can eat`);
   },
 
   changeLocation(newLocation) {
     this.location = newLocation;
+    return this.newLocation;
   },
-  summaray() {
-    returns`I live in ${location} and I have ${numberOfLegs}`;
+  summary() {
+    return `I live in ${this.location} and I have ${this.numberOfLegs}`;
   },
 };
 
-function animals(location, noOfLegs) {
-  let isAnimal = Object.create(animalMethod);
-  this.location = location;
-  this.noOfLegs = noOfLegs;
-  return animals;
+function createAnimal(location, numberOfLegs) {
+  let animal = Object.create(animalMethods);
+  animal.location = location;
+  animal.numberOfLegs = numberOfLegs;
+  return animal;
 }
 
 //  Dogs
@@ -38,13 +39,12 @@ let dogMethod = {
     returns`I am ${name} and I am of ${color} color. I can also bark`;
   },
 };
+Object.setPrototypeOf(dogMethod, animalMethods)
 
-function creatDog(name, color, location, noOfLegs) {
-  let dogBreed = Object.create(dogMethod);
-  this.name = name;
-  this.color = color;
-  this.location = location;
-  this.noOfLegs = noOfLegs;
+function creatDog(name, color, location, numberOfLegs) {
+  let dogBreed = createAnimal(location, numberOfLegs);
+  Object.setPrototypeOf(Object, dogMethod);
+  dogBreed.location = location;
+  dogBreed.numberOfLegs = numberOfLegs;
   return dogBreed;
 }
-
