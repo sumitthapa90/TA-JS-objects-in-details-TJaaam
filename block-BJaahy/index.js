@@ -70,7 +70,8 @@ class User {
       if(this.fullName.includes(str)) {
           return true;
       } else {
-          return false;
+          return let user1 = new User("Arya", "Stark");
+          let user2 = new User("John", "Snow");false;
       }
   }
 }
