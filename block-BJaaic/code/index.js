@@ -39,12 +39,12 @@ let dogMethod = {
     returns`I am ${name} and I am of ${color} color. I can also bark`;
   },
 };
-Object.setPrototypeOf(dogMethod, animalMethods)
+Object.setPrototypeOf(dogMethod, animalMethods);
 
 function creatDog(name, color, location, numberOfLegs) {
   let dogBreed = createAnimal(location, numberOfLegs);
   Object.setPrototypeOf(Object, dogMethod);
-  dogBreed.location = location;
-  dogBreed.numberOfLegs = numberOfLegs;
+  dogBreed.name = name;
+  dogBreed.color = color;
   return dogBreed;
 }
