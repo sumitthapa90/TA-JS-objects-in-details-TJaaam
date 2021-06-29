@@ -63,7 +63,7 @@ Make sure it does not the changes the original array.
 
 Array.prototype.shuffle = function () {
   let newArray = [...this].sort(() => {
-    return Math.random() * 5;
+    return Math.random() - 0.5;
   });
   return newArray;
 };
@@ -85,7 +85,7 @@ Array.prototype.unique = function () {
       acc.push(cv);
     }
     return acc;
-  }, []);
+  }, []).unique();
 };
 
 // Test to check the shuffle method (It will return different output every time you call)
