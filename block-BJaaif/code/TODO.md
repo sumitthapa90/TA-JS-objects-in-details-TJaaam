@@ -45,7 +45,7 @@ Create a class `PersonClass`. `PersonClass` should have a constructor that is pa
 
 #### Challenge 2/2
 
-Create a class `DeveloperClass` that creates objects by extending the `PersonClass` class. In addition to having a `name` property and `greet` method, `DeveloperClass` should have an `introduce` method. When called, `introduce` should log the string 'Hello World, my name is [name]'.
+Create a class `DeveloperClass` that creates objects by extending the `PersonClass` class. In addition to having a `name` property and `greet` method, `DeveloperClass` should have an `introduce` method. When called, `introduce` should log the strin.
 
 ## Subclassing
 
