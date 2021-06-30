@@ -42,6 +42,7 @@ let book1 = new Book(
   "Ernest Hemigway"
 );
 
+
 let book2 = new Book("Harry Potter", "Fantasy", "J K Rowling");
 let book3 = new Book("Lord of the rings", "Fantasy", "Tolkins");
 let book4 = new Book("Wings of fire", "Autobiography", "A P J");
@@ -50,5 +51,3 @@ let book5 = new Book("Animal Farm", "Political Satire", "Gorge Orewell");
 let bookList1 = new Booklist();
 
 bookList1.add([book1, book2, book3, book4, book5]);
-
-
