@@ -6,13 +6,13 @@ class Person {
   }
   // methods
   eat() {
-    return `Eating Healty foof is good for health`;
+    console.log(`${this.name} can eat`);
   }
   sleep() {
-    return `Sleep maximum 8 hours`;
+    console.log(`${this.name} can sleep`);
   }
   walk() {
-    return `Morning walk is good for health`;
+    console.log(`${this.name} can walk`);
   }
 }
 
@@ -23,18 +23,18 @@ class Player extends Person {
   }
 
   plays() {
-    return `play ${this.sportName} very well`;
+    console.log(`${this.name} can play`);
   }
 }
 
-class Cricketer extends player {
+class Cricketer extends Player {
   constructor(teamName, sportsName, name, age, gender) {
     super(sportsName, name, age, gender);
     this.teamName = teamName;
   }
 
   playCricket() {
-    return `play Cricket as allrounder`;
+    console.log(`${this.name} can play cricket`);
   }
 }
 
@@ -45,24 +45,24 @@ class Teacher extends Person {
   }
 
   teach() {
-    return `Teach Well`;
+    console.log(`${this.name} can teach`);
   }
 }
 
-class Artist extends person {
+class Artist extends Person {
   constructor(kind, name, age, gender) {
     super(name, age, gender);
-        this.kind = kind;
+    this.kind = kind;
   }
 
   creatArt() {
-    return `Is expert in ${this.kind} art`;
+    console.log(`${this.name} can creat art`);
   }
 }
-// let artist1 = new Artist("Dancing", "James", 25, "Male");
+let artist1 = new Artist("Dancing", "James", 25, "Male");
 
-// let teacher1 = new Teacher("AltCampus", "Ankit", 27, "Male");
+let teacher1 = new Teacher("AltCampus", "Ankit", 27, "Male");
 
-// let cricketer1 = new Cricketer("India", "Cricket", "Hardik Pandya", 28, "Male");
+let cricketer1 = new Cricketer("India", "Cricket", "Hardik Pandya", 28, "Male");
 
-// let player1 = new Player("Badminton", "Saina Nehwal", 28, "female");
+let player1 = new Player("Badminton", "Saina Nehwal", 28, "female");
